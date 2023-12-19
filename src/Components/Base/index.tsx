@@ -1,15 +1,18 @@
-'use client';
-
 import React, { FC } from 'react';
-//import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { LayoutBaseProps } from '../../@types/LayoutBaseType'
-//const { Header, Content, Footer } = Layout;
+import Header from '../Header';
+import Content from '../Content';
+import Footer from '../Footer';
 function Base({ children }: LayoutBaseProps) {
   return (
-    <div>
+    <>
+      <Header />
+      <Content>
         {children}
-    </div>
-    
+      </Content>
+      <Footer />
+    </>
+
   );
 };
 export default Base;
