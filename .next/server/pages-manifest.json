@@ -1,8 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/Details": "pages/Details.js",
-  "/RepositoryDetails": "pages/RepositoryDetails.js"
-}
+{"/_app":"pages/_app.js","/Details":"pages/Details.html","/RepositoryDetails":"pages/RepositoryDetails.html","/Search":"pages/Search.html","/":"pages/index.html","/_error":"pages/_error.js","/Search/styles":"pages/Search/styles.html","/Details/styles":"pages/Details/styles.html","/RepositoryDetails/styles":"pages/RepositoryDetails/styles.html","/_document":"pages/_document.js","/404":"pages/404.html"}
