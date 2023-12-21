@@ -1,60 +1,48 @@
 
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { GitHubContext } from '../../Context/GitHubContext';
-import { GitHubContextType } from '../../@types/GitHubContextType';
+import InputText from '../../Components/InputText';
+import Button from '../../Components/Buttom';
+import { useRouter } from 'next/router';
+import * as Style from './styles'
+import { ToastContainer, toast } from 'react-toastify';
 
 function Search() {
-    // const [form] = Form.useForm();
-    const { getGitHubUserDetail } = useContext(GitHubContext)
-    // const userNameValue = Form.useWatch('username', form);
-    // const onFinish = () => {
-    //     message.success('Submit success! ' + userNameValue);
-    //     //getGitHubUserDetail(userNameValue);
-    // };
+    const { getGitHubUserDetail, userDetail } = useContext(GitHubContext)
+    const [form, setForm] = useState({userName:''})
+    const router = useRouter();
+    const notify = (message: string) => toast(message);
 
-    // const onFinishFailed = () => {
-    //     message.error('Submit failed!');
-    // };
-
-    // const onFill = () => {
-    //     form.setFieldsValue({
-    //         url: 'https://taobao.com/',
-    //     });
-    // };
+    const handleSearch = () => {
+        if(form.userName === '') {
+            notify('Digite o usuário do github')
+        } else {
+            getGitHubUserDetail(form.userName)
+        }
+    }
     useEffect(() => {
-        getGitHubUserDetail('matheusgveras')
-    },[])
+        userDetail != null ? router.push('/RepositoryDetails') : console.log('Usuário não encontrato')
+    },[userDetail])
+
+    function handleInput(field: string, value: string) {
+        setForm((s) => ({... s, [field]: value}))
+    }
     return (
-        // <Row justify="center" gutter={[16, 16]}>
-        //     <Col  span={18}>
-        //         <Form
-        //             form={form}
-        //             layout="vertical"
-        //             onFinish={onFinish}
-        //             onFinishFailed={onFinishFailed}
-        //             autoComplete="off"
-        //         >
-        //             <Form.Item
-        //                 name="username"
-        //                 label="Username"
-        //                 rules={[{ required: true }, { type: 'string', min: 3 }]}
-        //             >
-        //                 <Input placeholder="input placeholder" />
-        //             </Form.Item>
-        //             <Form.Item>
-        //                 <Space>
-        //                     <Button type="primary" htmlType="submit">
-        //                         Show Github Detail
-        //                     </Button>
-        //                     <Button type="primary" onClick={onFill}>
-        //                         Use default user
-        //                     </Button>
-        //                 </Space>
-        //             </Form.Item>
-        //         </Form>
-        //     </Col>
-        // </Row>
-        <p>teste</p>
+        <>
+            <Style.SearchContainer>
+                <Style.FormItem>
+                    <InputText value={form.userName} 
+                    onInputChange={(value: string) => 
+                    handleInput('userName', value)} 
+                    label={'Digite o nome de usuario do GitHub'} 
+                    error={false} />
+                </Style.FormItem>
+                <Style.FormItem>
+                    <Button onClick={() => handleSearch()} fullWidth={true}>Buscar</Button>
+                </Style.FormItem>
+                <ToastContainer />
+            </Style.SearchContainer>
+        </>
     );
 };
 export default Search;

@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 interface ContentProps {
-  isOpen: boolean
+    height: number
 }
 
-export const ContainerContent = styled.div`
+export const ContainerContent = styled.div<ContentProps>`
   display: flex;
-  flex:1;
-  heigth:100px;
   background-color:#F5f5f5;
   padding: 10px;
   margin:20px;
   border-radius:10px;
   border: 1px solid #ccc;
+  min-height:${props => `${props.height - 200}`}px;
 `
