@@ -11,3 +11,4 @@ height:100%;
 export const FormItem = styled.div`
 width:100%;
 `
+export default SearchContainer

@@ -1,3 +1,3 @@
 export const compiler = {
-  styledComponents: true
+  styledComponents: true,
 };

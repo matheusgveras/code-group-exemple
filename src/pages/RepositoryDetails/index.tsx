@@ -13,10 +13,11 @@ function RepositoryDetails() {
                     <Style.Avatar src={userDetail.avatar_url} />
                 </Style.Container>
                 <Style.Container>
-                    <h1>Informações de {userDetail.name}</h1>
+                    Informações de {userDetail.name}
                 </Style.Container>
                 <Style.Container>
-                    <p>{userDetail.email == null ? 'Sem email' : userDetail.email} - {userDetail.bio == null ? 'Sem biografia' : userDetail.bio}</p>
+                    {userDetail.email == null ? 'Sem email' : userDetail.email} - 
+                    {userDetail.bio == null ? 'Sem biografia' : userDetail.bio}
                 </Style.Container>
 
                 <Style.Container>

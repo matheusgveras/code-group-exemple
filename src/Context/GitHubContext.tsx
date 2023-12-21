@@ -19,10 +19,9 @@ export const GitHubProvider = ({ children }: IGitHubProviderProps) => {
   const [repositoryDetail, setRepositoryDetail] = useState<IRepository | any>(null)
   const notify = (message: string) => toast(message);
 
-
-
   async function getGitHubUserDetail(userName: string) {
     await api.get<IUser>('users/' + userName).then(response => {
+      console.log('response....', response)
       setUserDetail(response.data)
     }).catch(error => {
       setUserDetail(null)
@@ -39,8 +38,9 @@ export const GitHubProvider = ({ children }: IGitHubProviderProps) => {
     });
   }
 
-  async function getGitHubRepositoryDetail(repositoryName: string) {
-    const rest = await api.get<IRepository>('repos/' + repositoryName).then(response => {
+  async function getGitHubRepositoryDetail(repositoryName: string, userName: string) {
+    await api.get<IRepository>(`repos/${userName}/` + repositoryName).then(response => {
+      console.log('last...e', response.data)
       setRepositoryDetail(response.data)
     }).catch(error => {
       setRepositoryDetail(null)

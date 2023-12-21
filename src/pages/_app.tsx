@@ -4,7 +4,7 @@ import { GitHubProvider } from '../Context/GitHubContext'
 import Base from '../Components/Base'
 import GlobalStyle from '../globalStyles';
 import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+import theme from '../theme';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App({ Component, pageProps }: AppProps) {

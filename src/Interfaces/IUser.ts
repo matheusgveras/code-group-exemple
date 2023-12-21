@@ -3,6 +3,7 @@ export interface IUser {
     bio: string
     email: string
     name: string
+    login: string
     followers: string
     following: string
 }

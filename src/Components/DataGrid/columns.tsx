@@ -1,4 +1,4 @@
-export const columnsStructure = [
+export const columnsStructure = (router: any) => [
     {
         name: 'Repositorio',
         selector: (row: { name: any; }) => row.name,
@@ -20,7 +20,8 @@ export const columnsStructure = [
     {
         name: 'Detalhes',
         cell: (d:any) => (
-          <a style={{textDecoration:'none', color: 'red'}} href={'/Details/' + d.name}>
+           <a style={{textDecoration:'none', color: 'red'}} 
+             onClick={() => router.push('/Details?repository=' + d.name)}>
             Detalhes
           </a>
         )

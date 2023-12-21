@@ -12,24 +12,14 @@ padding:20px;
 border-radius:20px;
 border-color:#ccc;
 `
-export const Circle = styled.div`
-width:120px;
-padding:30px;
-justify-content:center;
-align-itens:center;
-aligh-self:center;
-color:#fff;
-border-radius:100px;
-background-color:#555
-`
-export const Count = styled.div`
+
+export const Button = styled.a`
 ${({ theme }) => css`
-width:150px;
-padding:20px;
-justify-content:center;
-align-itens:center;
+width:50px;
+padding:10px;
 text-align:center;
 color:#fff;
+text-decoration:none;
 border-radius:100px;
 background-color:${theme.colors.colorSecondary};
 `}
@@ -42,11 +32,6 @@ justify-content:center;
 align-itens:center;
 gap:20px;
 width:100%;
-`
-export const Avatar = styled.img`
-    width:100px;
-    overflow:hidden;
-    border-radius:100px;
 `
 
 export default Container
